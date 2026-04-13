@@ -21,7 +21,7 @@ const sections = [
   },
   {
     title: 'Derechos del Usuario',
-    content: 'Usted tiene derecho a acceder, rectificar, cancelar u oponerse al tratamiento de sus datos personales (derechos ARCO). Para ejercer estos derechos, puede contactarnos a través de privacidad@mediflow.mx.',
+    content: 'Usted tiene derecho a acceder, rectificar, cancelar u oponerse al tratamiento de sus datos personales. Para ejercer estos derechos, puede contactarnos a través de privacidad@medagenda.do.',
   },
   {
     title: 'Retención de Datos',

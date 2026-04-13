@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { User, Stethoscope, Mail, Phone, Lock, Eye, EyeOff, Check, X, ArrowLeft, ArrowRight, Shield } from 'lucide-react';
 import { useToast } from '../context/ToastContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -20,6 +21,7 @@ export default function Register() {
   const [errors, setErrors] = useState({});
   const toast = useToast();
   const navigate = useNavigate();
+  const { register } = useAuth();
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 50);
@@ -77,8 +79,9 @@ export default function Register() {
     }
     setLoading(true);
     setTimeout(() => {
+      register(formData);
       setLoading(false);
-      toast.success('¡Cuenta creada exitosamente! Bienvenido a MediFlow');
+      toast.success('¡Cuenta creada exitosamente! Bienvenido a MedAgenda');
       setTimeout(() => navigate('/dashboard'), 1500);
     }, 2000);
   };
@@ -100,7 +103,7 @@ export default function Register() {
             <Stethoscope size={28} className="text-white" />
           </div>
           <h1 className="text-3xl font-bold mb-2 text-heading">Crea tu cuenta</h1>
-          <p className="text-muted">Empieza a cuidar tu salud con MediFlow</p>
+          <p className="text-muted">Empieza a cuidar tu salud con MedAgenda</p>
         </div>
 
         {/* Progress */}
@@ -192,7 +195,7 @@ export default function Register() {
                       value={formData.phone}
                       onChange={e => setFormData({ ...formData, phone: e.target.value })}
                       className="input-base w-full rounded-xl px-4 py-3.5 pl-12"
-                      placeholder="+52 55 1234 5678"
+                      placeholder="+1 809 555 1234"
                     />
                   </div>
                 </div>

@@ -134,13 +134,13 @@ export default function NewAppointment() {
                   }`}
                 >
                   <p className={`text-xs font-medium mb-1 ${isSelected ? 'text-blue-100' : 'text-muted'}`}>
-                    {isToday ? 'Hoy' : d.toLocaleDateString('es-MX', { weekday: 'short' })}
+                    {isToday ? 'Hoy' : d.toLocaleDateString('es-DO', { weekday: 'short' })}
                   </p>
                   <p className={`text-lg font-bold ${isSelected ? 'text-white' : 'text-heading'}`}>
                     {d.getDate()}
                   </p>
                   <p className={`text-xs ${isSelected ? 'text-blue-100' : 'text-faint'}`}>
-                    {d.toLocaleDateString('es-MX', { month: 'short' })}
+                    {d.toLocaleDateString('es-DO', { month: 'short' })}
                   </p>
                 </button>
               );
@@ -230,7 +230,7 @@ export default function NewAppointment() {
             <div className="space-y-3 text-sm">
               <div className="flex justify-between"><span className="text-muted">Médico</span><span className="text-heading font-medium">{doctor?.name}</span></div>
               <div className="flex justify-between"><span className="text-muted">Especialidad</span><span className="text-heading font-medium">{doctor?.specialty}</span></div>
-              <div className="flex justify-between"><span className="text-muted">Fecha</span><span className="text-heading font-medium">{selectedDate.toLocaleDateString('es-MX', { weekday: 'long', day: 'numeric', month: 'long' })}</span></div>
+              <div className="flex justify-between"><span className="text-muted">Fecha</span><span className="text-heading font-medium">{selectedDate.toLocaleDateString('es-DO', { weekday: 'long', day: 'numeric', month: 'long' })}</span></div>
               <div className="flex justify-between"><span className="text-muted">Horario</span><span className="text-heading font-medium">{selectedTime}</span></div>
               <div className="flex justify-between"><span className="text-muted">Tipo</span><span className="text-heading font-medium capitalize">{consultType}</span></div>
               <div className="flex justify-between"><span className="text-muted">Precio</span><span className="text-emerald-400 font-bold">{doctor?.price}</span></div>

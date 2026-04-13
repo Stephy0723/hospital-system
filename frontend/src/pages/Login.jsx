@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Mail, Lock, Eye, EyeOff, Globe, Apple, Stethoscope, ArrowRight } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, Globe, Apple, Stethoscope, ArrowRight, User } from 'lucide-react';
 import { useToast } from '../context/ToastContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
+  const [loginRole, setLoginRole] = useState('patient');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
   const [errors, setErrors] = useState({});
   const toast = useToast();
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 50);
@@ -35,6 +38,7 @@ export default function Login() {
     }
     setLoading(true);
     setTimeout(() => {
+      login(loginRole);
       setLoading(false);
       toast.success('¡Bienvenido de vuelta! Redirigiendo...');
       setTimeout(() => navigate('/dashboard'), 1200);
@@ -56,12 +60,36 @@ export default function Login() {
             <Stethoscope size={28} className="text-white" />
           </div>
           <h1 className="text-3xl font-bold mb-2 text-heading">Bienvenido de vuelta</h1>
-          <p className="text-muted">Ingresa a tu cuenta de MediFlow</p>
+          <p className="text-muted">Ingresa a tu cuenta de MedAgenda</p>
         </div>
 
         {/* Form */}
         <div className="card-elevated rounded-2xl p-8 gradient-border">
           <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Role */}
+            <div>
+              <label className="block text-sm font-medium text-body mb-3">Ingresar como</label>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { value: 'patient', icon: User, label: 'Paciente' },
+                  { value: 'doctor', icon: Stethoscope, label: 'Médico' },
+                ].map(role => (
+                  <button
+                    key={role.value}
+                    type="button"
+                    onClick={() => setLoginRole(role.value)}
+                    className={`card-interactive rounded-xl py-3 text-sm font-medium flex items-center justify-center gap-2 transition-all duration-300 ${
+                      loginRole === role.value
+                        ? '!border-blue-500/50 !bg-blue-500/10 text-heading shadow-sm'
+                        : 'text-muted'
+                    }`}
+                  >
+                    <role.icon size={16} className={loginRole === role.value ? 'text-blue-400' : ''} /> {role.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Email */}
             <div>
               <label className="block text-sm font-medium text-body mb-2">Correo Electrónico</label>

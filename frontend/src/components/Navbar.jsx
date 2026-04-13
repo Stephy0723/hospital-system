@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Stethoscope, LayoutGrid, Users, LogIn, Menu, X, ChevronRight } from 'lucide-react';
+import { Home, Stethoscope, LayoutGrid, Users, LogIn, Menu, X, ChevronRight, LayoutDashboard } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import { useAuth } from '../context/AuthContext';
 
 const navLinks = [
   { to: '/', label: 'Inicio', icon: Home },
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { user } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -75,20 +77,32 @@ export default function Navbar() {
         {/* Actions */}
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Link
-            to="/login"
-            className="text-muted hover:text-heading px-4 py-2 rounded-xl transition-all duration-300 hover:bg-[var(--bg-card)] text-sm font-medium flex items-center gap-2"
-          >
-            <LogIn size={16} />
-            Ingresar
-          </Link>
-          <Link
-            to="/register"
-            className="btn-primary px-5 py-2.5 rounded-xl text-sm flex items-center gap-2 group"
-          >
-            Comenzar Gratis
-            <ChevronRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
-          </Link>
+          {user ? (
+            <Link
+              to="/dashboard"
+              className="btn-primary px-5 py-2.5 rounded-xl text-sm flex items-center gap-2 group"
+            >
+              <LayoutDashboard size={16} />
+              Mi Panel
+            </Link>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="text-muted hover:text-heading px-4 py-2 rounded-xl transition-all duration-300 hover:bg-[var(--bg-card)] text-sm font-medium flex items-center gap-2"
+              >
+                <LogIn size={16} />
+                Ingresar
+              </Link>
+              <Link
+                to="/register"
+                className="btn-primary px-5 py-2.5 rounded-xl text-sm flex items-center gap-2 group"
+              >
+                Comenzar Gratis
+                <ChevronRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile */}
@@ -133,13 +147,22 @@ export default function Navbar() {
             );
           })}
           <div className="pt-4 border-t border-themed flex flex-col gap-2">
-            <Link to="/login" onClick={() => setMenuOpen(false)} className="flex items-center justify-center gap-2 py-3 text-muted hover:text-heading transition rounded-xl hover:bg-[var(--bg-card)]">
-              <LogIn size={16} />
-              Ingresar
-            </Link>
-            <Link to="/register" onClick={() => setMenuOpen(false)} className="btn-primary text-center py-3 rounded-xl font-semibold">
-              Comenzar Gratis
-            </Link>
+            {user ? (
+              <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="btn-primary text-center py-3 rounded-xl font-semibold flex items-center justify-center gap-2">
+                <LayoutDashboard size={16} />
+                Mi Panel
+              </Link>
+            ) : (
+              <>
+                <Link to="/login" onClick={() => setMenuOpen(false)} className="flex items-center justify-center gap-2 py-3 text-muted hover:text-heading transition rounded-xl hover:bg-[var(--bg-card)]">
+                  <LogIn size={16} />
+                  Ingresar
+                </Link>
+                <Link to="/register" onClick={() => setMenuOpen(false)} className="btn-primary text-center py-3 rounded-xl font-semibold">
+                  Comenzar Gratis
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

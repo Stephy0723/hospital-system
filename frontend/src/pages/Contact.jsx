@@ -8,9 +8,9 @@ import { useToast } from '../context/ToastContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const contactInfo = [
-  { icon: Phone, label: 'Teléfono', value: '+52 55 1234 5678', desc: 'Lun-Vie 8:00-20:00' },
-  { icon: Mail, label: 'Email', value: 'contacto@mediflow.mx', desc: 'Respuesta en 24h' },
-  { icon: MapPin, label: 'Oficinas', value: 'CDMX, México', desc: 'Av. Reforma 222' },
+  { icon: Phone, label: 'Teléfono', value: '+1 809 555 1234', desc: 'Lun-Vie 8:00-20:00' },
+  { icon: Mail, label: 'Email', value: 'contacto@medagenda.do', desc: 'Respuesta en 24h' },
+  { icon: MapPin, label: 'Oficinas', value: 'Santo Domingo, RD', desc: 'Av. Winston Churchill 1099' },
   { icon: Clock, label: 'Horario', value: 'Lun - Vie', desc: '8:00 AM - 8:00 PM' },
 ];
 

@@ -115,7 +115,7 @@ export default function Appointments() {
                     <div className="flex items-center gap-6 text-sm">
                       <div className="flex items-center gap-2 text-muted">
                         <CalendarDays size={14} className="text-blue-400" />
-                        <span>{new Date(apt.date).toLocaleDateString('es-MX', { weekday: 'short', day: 'numeric', month: 'short' })}</span>
+                        <span>{new Date(apt.date).toLocaleDateString('es-DO', { weekday: 'short', day: 'numeric', month: 'short' })}</span>
                       </div>
                       <div className="flex items-center gap-2 text-muted">
                         <Clock size={14} className="text-emerald-400" />
