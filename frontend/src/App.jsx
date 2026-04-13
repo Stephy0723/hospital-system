@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { ToastProvider } from './context/ToastContext';
 import MainLayout from './layouts/MainLayout';
@@ -25,7 +25,7 @@ function App() {
   return (
     <ThemeProvider>
       <ToastProvider>
-        <BrowserRouter>
+        <HashRouter>
           <ScrollToTop />
           <Routes>
             {/* Public routes */}
@@ -52,7 +52,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </ToastProvider>
     </ThemeProvider>
   );
