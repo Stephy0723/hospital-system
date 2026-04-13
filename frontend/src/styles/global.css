@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Global custom styles for Hospital System */
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+}
