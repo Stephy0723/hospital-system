@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Stethoscope, Twitter, Linkedin, Instagram, Github, ArrowUpRight, Code2 } from 'lucide-react';
+import { Stethoscope, Twitter, Linkedin, Instagram, Github, ArrowUpRight } from 'lucide-react';
 
 const footerLinks = {
   Plataforma: [
@@ -92,11 +92,6 @@ export default function Footer() {
             <p className="text-faint text-sm">
               &copy; {new Date().getFullYear()} MedAgenda. Todos los derechos reservados.
             </p>
-            <div className="flex items-center gap-1.5 text-faint text-xs group">
-              <Code2 size={13} className="text-blue-400/60 group-hover:text-blue-400 transition-colors duration-300" />
-              <span>Desarrollado por</span>
-              <span className="font-semibold text-gradient-premium tracking-wide">Steliant</span>
-            </div>
           </div>
         </div>
       </div>
