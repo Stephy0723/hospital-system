@@ -19,6 +19,9 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Cookies from './pages/Cookies';
 import ForgotPassword from './pages/ForgotPassword';
+import DashboardDoctors from './pages/dashboard/DashboardDoctors';
+import DashboardAppointments from './pages/dashboard/DashboardAppointments';
+import DashboardPatients from './pages/dashboard/DashboardPatients';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -50,6 +53,9 @@ function App() {
             {/* Dashboard routes */}
             <Route element={<DashboardLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard/doctors" element={<DashboardDoctors />} />
+              <Route path="/dashboard/appointments" element={<DashboardAppointments />} />
+              <Route path="/dashboard/patients" element={<DashboardPatients />} />
             </Route>
           </Routes>
         </HashRouter>
