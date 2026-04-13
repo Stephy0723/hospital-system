@@ -29,7 +29,7 @@ const team = [
 ];
 
 const milestones = [
-  { year: '2022', title: 'Fundación', desc: 'MediFlow nace con la misión de democratizar el acceso a salud de calidad.' },
+  { year: '2022', title: 'Fundación', desc: 'MedAgenda nace con la misión de democratizar el acceso a salud de calidad.' },
   { year: '2023', title: 'Expansión', desc: 'Alcanzamos 1,000 médicos y 25,000 consultas realizadas.' },
   { year: '2024', title: 'Telemedicina', desc: 'Lanzamiento de consultas en línea y recetas digitales.' },
   { year: '2025', title: 'Presente', desc: 'Más de 2,500 médicos y 50,000 consultas completadas.' },
@@ -102,7 +102,7 @@ export default function About() {
             </h2>
             <p className="text-body leading-relaxed mb-4">
               Creemos que toda persona merece acceder a atención médica de primer nivel sin importar
-              su ubicación. MediFlow elimina las barreras entre pacientes y profesionales de la salud.
+              su ubicación. MedAgenda elimina las barreras entre pacientes y profesionales de la salud.
             </p>
             <p className="text-muted leading-relaxed">
               Nuestra tecnología conecta a miles de personas con médicos certificados, ofreciendo
@@ -115,7 +115,7 @@ export default function About() {
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-cyan-500/10 blur-[80px] rounded-full" />
             </div>
             <Building2 size={40} className="text-blue-400 mb-6" />
-            <h3 className="text-2xl font-bold text-heading mb-3">MediFlow Platform</h3>
+            <h3 className="text-2xl font-bold text-heading mb-3">MedAgenda Platform</h3>
             <p className="text-muted text-sm leading-relaxed mb-6">
               Plataforma integral que combina inteligencia artificial, telemedicina
               y gestión médica en una sola solución.

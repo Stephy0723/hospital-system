@@ -20,9 +20,9 @@ const footerLinks = {
 };
 
 const socialIcons = [
-  { icon: Twitter, href: 'https://twitter.com/mediflow', label: 'Twitter' },
-  { icon: Linkedin, href: 'https://linkedin.com/company/mediflow', label: 'LinkedIn' },
-  { icon: Instagram, href: 'https://instagram.com/mediflow', label: 'Instagram' },
+  { icon: Twitter, href: 'https://twitter.com/medagenda', label: 'Twitter' },
+  { icon: Linkedin, href: 'https://linkedin.com/company/medagenda', label: 'LinkedIn' },
+  { icon: Instagram, href: 'https://instagram.com/medagenda', label: 'Instagram' },
   { icon: Github, href: 'https://github.com/steliant', label: 'GitHub' },
 ];
 
@@ -43,7 +43,7 @@ export default function Footer() {
                 <Stethoscope size={20} className="text-white" strokeWidth={2.5} />
               </div>
               <span className="text-xl font-bold text-heading">
-                Medi<span className="text-gradient-premium">Flow</span>
+                Med<span className="text-gradient-premium">Agenda</span>
               </span>
             </div>
             <p className="text-muted text-sm leading-relaxed max-w-xs mb-6">
@@ -90,7 +90,7 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-themed">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-faint text-sm">
-              &copy; {new Date().getFullYear()} MediFlow. Todos los derechos reservados.
+              &copy; {new Date().getFullYear()} MedAgenda. Todos los derechos reservados.
             </p>
             <div className="flex items-center gap-1.5 text-faint text-xs group">
               <Code2 size={13} className="text-blue-400/60 group-hover:text-blue-400 transition-colors duration-300" />

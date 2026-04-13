@@ -289,7 +289,7 @@ export default function Home() {
             Lo que dicen nuestros <span className="text-gradient-premium">Pacientes</span>
           </h2>
           <p className="text-muted max-w-xl mx-auto text-lg">
-            Miles de personas confían en MediFlow para su atención médica
+            Miles de personas confían en MedAgenda para su atención médica
           </p>
         </div>
 
@@ -317,7 +317,7 @@ export default function Home() {
             <span className="text-gradient-premium"> salud</span>?
           </h2>
           <p className="text-muted max-w-xl mx-auto mb-12 text-lg">
-            Únete a más de 50,000 pacientes que ya confían en MediFlow para su atención médica.
+            Únete a más de 50,000 pacientes que ya confían en MedAgenda para su atención médica.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

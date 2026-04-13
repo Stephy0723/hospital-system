@@ -20,7 +20,7 @@ export default function DashboardLayout() {
           <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center font-bold text-white shadow-lg shadow-blue-600/25">
             M
           </div>
-          <span className="text-lg font-semibold text-heading">MediFlow</span>
+          <span className="text-lg font-semibold text-heading">MedAgenda</span>
         </Link>
 
         <nav className="space-y-1 flex-1">

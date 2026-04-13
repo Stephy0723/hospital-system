@@ -45,7 +45,7 @@ export default function Navbar() {
             <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-400 to-cyan-300 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
           </div>
           <span className="text-xl font-bold text-heading tracking-tight">
-            Medi<span className="text-gradient-premium">Flow</span>
+            Med<span className="text-gradient-premium">Agenda</span>
           </span>
         </Link>
 
