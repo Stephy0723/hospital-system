@@ -4,7 +4,8 @@ import {
   Calendar, Clock, User, MapPin, Search, Plus,
   CheckCircle2, XCircle, AlertCircle
 } from 'lucide-react';
-import { appointments as allAppointments, doctors } from '../../services/mockData';
+import { doctors } from '../../services/mockData';
+import { useAppData } from '../../context/AppDataContext';
 
 const STATUS_MAP = {
   confirmed: { label: 'Confirmada', icon: CheckCircle2, color: 'text-emerald-500 bg-emerald-500/10 border-emerald-500/20' },
@@ -14,6 +15,7 @@ const STATUS_MAP = {
 };
 
 export default function DashboardAppointments() {
+  const { appointments: allAppointments, cancelAppointment, completeAppointment } = useAppData();
   const [visible, setVisible] = useState(false);
   const [filter, setFilter] = useState('all');
   const [search, setSearch] = useState('');

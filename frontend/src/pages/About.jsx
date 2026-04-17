@@ -62,7 +62,7 @@ export default function About() {
             Transformando la <span className="text-gradient-premium">Salud Digital</span>
           </h1>
           <p className="text-muted text-lg max-w-3xl mx-auto leading-relaxed">
-            Somos una plataforma mexicana de tecnología médica comprometida con conectar
+            Somos una plataforma dominicana de tecnología médica comprometida con conectar
             pacientes y médicos de manera inteligente, segura y accesible.
           </p>
         </div>

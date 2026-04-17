@@ -1,21 +1,24 @@
 import { Link } from 'react-router-dom';
-import { Stethoscope, Twitter, Linkedin, Instagram, Github, ArrowUpRight } from 'lucide-react';
+import { Stethoscope, Twitter, Linkedin, Instagram, Github, ArrowUpRight, Pill, FileText } from 'lucide-react';
 
 const footerLinks = {
   Plataforma: [
     { label: 'Buscar Médicos', to: '/doctors' },
     { label: 'Agendar Cita', to: '/appointments' },
-    { label: 'Servicios', to: '/services' },
+    { label: 'Farmacias', to: '/pharmacy' },
+    { label: 'Medicamentos', to: '/medicines' },
   ],
-  Empresa: [
-    { label: 'Nosotros', to: '/about' },
-    { label: 'Contacto', to: '/contact' },
+  Servicios: [
+    { label: 'Recetas Digitales', to: '/prescriptions' },
+    { label: 'Telemedicina', to: '/services' },
+    { label: 'Servicios', to: '/services' },
     { label: 'Blog', to: '/blog' },
   ],
   Legal: [
     { label: 'Privacidad', to: '/privacy' },
     { label: 'Términos', to: '/terms' },
     { label: 'Cookies', to: '/cookies' },
+    { label: 'Contacto', to: '/contact' },
   ],
 };
 
@@ -39,7 +42,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 bg-gradient-to-br from-sky-600 to-teal-500 rounded-xl flex items-center justify-center shadow-lg">
                 <Stethoscope size={20} className="text-white" strokeWidth={2.5} />
               </div>
               <span className="text-xl font-bold text-heading">
@@ -47,7 +50,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-muted text-sm leading-relaxed max-w-xs mb-6">
-              Plataforma inteligente de consulta médica. Conectamos pacientes con los mejores profesionales de salud.
+              Plataforma integral de salud. Consultas médicas, recetas digitales, farmacias conectadas y medicamentos a tu alcance.
             </p>
             <div className="flex gap-2">
               {socialIcons.map(({ icon: Icon, href, label }) => (

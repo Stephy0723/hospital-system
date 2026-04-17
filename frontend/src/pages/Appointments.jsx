@@ -5,7 +5,9 @@ import {
   Building2, ArrowRight, Plus, Filter, Sparkles
 } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { appointments, doctors } from '../services/mockData';
+import { useAppData } from '../context/AppDataContext';
+import { useToast } from '../context/ToastContext';
+import { doctors } from '../services/mockData';
 
 const statusConfig = {
   confirmed: { label: 'Confirmada', icon: CheckCircle, color: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' },
@@ -18,6 +20,8 @@ export default function Appointments() {
   const [visible, setVisible] = useState(false);
   const [filter, setFilter] = useState('all');
   const containerRef = useScrollReveal([]);
+  const { appointments, cancelAppointment, completeAppointment } = useAppData();
+  const toast = useToast();
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 100);
@@ -115,7 +119,7 @@ export default function Appointments() {
                     <div className="flex items-center gap-6 text-sm">
                       <div className="flex items-center gap-2 text-muted">
                         <CalendarDays size={14} className="text-blue-400" />
-                        <span>{new Date(apt.date).toLocaleDateString('es-MX', { weekday: 'short', day: 'numeric', month: 'short' })}</span>
+                        <span>{new Date(apt.date).toLocaleDateString('es-DO', { weekday: 'short', day: 'numeric', month: 'short' })}</span>
                       </div>
                       <div className="flex items-center gap-2 text-muted">
                         <Clock size={14} className="text-emerald-400" />
@@ -128,10 +132,30 @@ export default function Appointments() {
                     </div>
 
                     {/* Status */}
-                    <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border ${status.color} shrink-0`}>
-                      <StatusIcon size={12} />
-                      {status.label}
-                    </span>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border ${status.color}`}>
+                        <StatusIcon size={12} />
+                        {status.label}
+                      </span>
+                      {(apt.status === 'confirmed' || apt.status === 'pending') && (
+                        <div className="flex gap-1">
+                          <button
+                            onClick={() => { completeAppointment(apt.id); toast.success('Cita marcada como completada'); }}
+                            className="w-7 h-7 rounded-md border border-themed flex items-center justify-center text-muted hover:text-emerald-400 hover:border-emerald-500/30 transition-all"
+                            title="Completar"
+                          >
+                            <CheckCircle size={13} />
+                          </button>
+                          <button
+                            onClick={() => { cancelAppointment(apt.id); toast.warning('Cita cancelada'); }}
+                            className="w-7 h-7 rounded-md border border-themed flex items-center justify-center text-muted hover:text-red-400 hover:border-red-500/30 transition-all"
+                            title="Cancelar"
+                          >
+                            <XCircle size={13} />
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               );

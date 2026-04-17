@@ -5,12 +5,13 @@ import {
   ArrowRight, Sparkles, CheckCircle
 } from 'lucide-react';
 import { useToast } from '../context/ToastContext';
+import { useAppData } from '../context/AppDataContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const contactInfo = [
-  { icon: Phone, label: 'Teléfono', value: '+52 55 1234 5678', desc: 'Lun-Vie 8:00-20:00' },
-  { icon: Mail, label: 'Email', value: 'contacto@mediflow.mx', desc: 'Respuesta en 24h' },
-  { icon: MapPin, label: 'Oficinas', value: 'CDMX, México', desc: 'Av. Reforma 222' },
+  { icon: Phone, label: 'Teléfono', value: '+1 809-555-1234', desc: 'Lun-Vie 8:00-20:00' },
+  { icon: Mail, label: 'Email', value: 'contacto@mediflow.com.do', desc: 'Respuesta en 24h' },
+  { icon: MapPin, label: 'Oficinas', value: 'Santo Domingo, RD', desc: 'Av. Winston Churchill 500' },
   { icon: Clock, label: 'Horario', value: 'Lun - Vie', desc: '8:00 AM - 8:00 PM' },
 ];
 
@@ -19,7 +20,9 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [errors, setErrors] = useState({});
   const toast = useToast();
+  const { addContactMessage } = useAppData();
   const containerRef = useScrollReveal([]);
 
   useEffect(() => {
@@ -29,16 +32,28 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = 'El nombre es requerido';
+    if (!formData.email.trim()) newErrors.email = 'El correo es requerido';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Correo inválido';
+    if (!formData.message.trim()) newErrors.message = 'El mensaje es requerido';
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       toast.error('Por favor completa los campos requeridos');
       return;
     }
     setLoading(true);
     setTimeout(() => {
+      addContactMessage({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      });
       setLoading(false);
       setSent(true);
       toast.success('¡Mensaje enviado! Te responderemos pronto.');
-    }, 1500);
+    }, 1000);
   };
 
   return (

@@ -5,6 +5,8 @@ import {
   ChevronRight, CheckCircle, AlertCircle
 } from 'lucide-react';
 import { useToast } from '../context/ToastContext';
+import { useAppData } from '../context/AppDataContext';
+import { useAuth } from '../context/AuthContext';
 import { doctors } from '../services/mockData';
 
 const timeSlots = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'];
@@ -24,6 +26,8 @@ export default function NewAppointment() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const toast = useToast();
+  const { addAppointment } = useAppData();
+  const { user } = useAuth();
 
   const doctorId = searchParams.get('doctor');
   const preselectedDoctor = doctors.find(d => d.id === Number(doctorId));
@@ -52,10 +56,24 @@ export default function NewAppointment() {
 
     setLoading(true);
     setTimeout(() => {
+      const newApt = addAppointment({
+        doctorId: doctor.id,
+        doctor: doctor.name,
+        specialty: doctor.specialty,
+        date: selectedDate.toISOString().split('T')[0],
+        time: selectedTime,
+        type: consultType === 'presencial' ? 'Presencial' : 'Telemedicina',
+        reason: reason || '',
+        price: doctor.price,
+        patientId: user?.id,
+        patientEmail: user?.email,
+        patientName: user?.fullName,
+        patient: user?.fullName,
+      });
       setLoading(false);
-      toast.success('¡Cita agendada exitosamente! Te hemos enviado la confirmación.');
-      setTimeout(() => navigate('/appointments'), 1500);
-    }, 2000);
+      toast.success(`¡Cita #${newApt.id} agendada exitosamente con ${doctor.name}!`);
+      setTimeout(() => navigate('/appointments'), 1000);
+    }, 1200);
   };
 
   return (
@@ -134,13 +152,13 @@ export default function NewAppointment() {
                   }`}
                 >
                   <p className={`text-xs font-medium mb-1 ${isSelected ? 'text-blue-100' : 'text-muted'}`}>
-                    {isToday ? 'Hoy' : d.toLocaleDateString('es-MX', { weekday: 'short' })}
+                    {isToday ? 'Hoy' : d.toLocaleDateString('es-DO', { weekday: 'short' })}
                   </p>
                   <p className={`text-lg font-bold ${isSelected ? 'text-white' : 'text-heading'}`}>
                     {d.getDate()}
                   </p>
                   <p className={`text-xs ${isSelected ? 'text-blue-100' : 'text-faint'}`}>
-                    {d.toLocaleDateString('es-MX', { month: 'short' })}
+                    {d.toLocaleDateString('es-DO', { month: 'short' })}
                   </p>
                 </button>
               );
@@ -230,7 +248,7 @@ export default function NewAppointment() {
             <div className="space-y-3 text-sm">
               <div className="flex justify-between"><span className="text-muted">Médico</span><span className="text-heading font-medium">{doctor?.name}</span></div>
               <div className="flex justify-between"><span className="text-muted">Especialidad</span><span className="text-heading font-medium">{doctor?.specialty}</span></div>
-              <div className="flex justify-between"><span className="text-muted">Fecha</span><span className="text-heading font-medium">{selectedDate.toLocaleDateString('es-MX', { weekday: 'long', day: 'numeric', month: 'long' })}</span></div>
+              <div className="flex justify-between"><span className="text-muted">Fecha</span><span className="text-heading font-medium">{selectedDate.toLocaleDateString('es-DO', { weekday: 'long', day: 'numeric', month: 'long' })}</span></div>
               <div className="flex justify-between"><span className="text-muted">Horario</span><span className="text-heading font-medium">{selectedTime}</span></div>
               <div className="flex justify-between"><span className="text-muted">Tipo</span><span className="text-heading font-medium capitalize">{consultType}</span></div>
               <div className="flex justify-between"><span className="text-muted">Precio</span><span className="text-emerald-400 font-bold">{doctor?.price}</span></div>
