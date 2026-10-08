@@ -26,7 +26,7 @@ export default function DashboardSettings() {
       {/* Header */}
       <div className={`transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
         <h2 className="text-2xl font-bold text-heading mb-1">Configuración</h2>
-        <p className="text-muted text-sm">Personaliza tu experiencia en MedAgenda</p>
+        <p className="text-muted text-sm">Personaliza tu experiencia en Steliant Salud</p>
       </div>
 
       {/* Appearance */}
@@ -189,3 +189,4 @@ function ToggleSetting({ label, description, enabled, onToggle }) {
     </div>
   );
 }
+

@@ -21,7 +21,7 @@ const sections = [
   },
   {
     title: 'Derechos del Usuario',
-    content: 'Usted tiene derecho a acceder, rectificar, cancelar u oponerse al tratamiento de sus datos personales. Para ejercer estos derechos, puede contactarnos a través de privacidad@medagenda.do.',
+    content: 'Usted tiene derecho a acceder, rectificar, cancelar u oponerse al tratamiento de sus datos personales. Para ejercer estos derechos, puede contactarnos a través de privacidad@steliant-salud.do.',
   },
   {
     title: 'Retención de Datos',
@@ -82,3 +82,4 @@ export default function Privacy() {
     </div>
   );
 }
+

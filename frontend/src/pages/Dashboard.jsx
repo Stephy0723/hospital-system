@@ -8,3 +8,4 @@ export default function Dashboard() {
   if (user?.role === 'doctor') return <DoctorDashboard />;
   return <PatientDashboard />;
 }
+

@@ -113,7 +113,7 @@ export const testimonials = [
   {
     name: 'Andrea Ruiz',
     role: 'Paciente desde 2024',
-    text: 'MedAgenda cambió completamente mi experiencia médica. Pude agendar con mi cardióloga en menos de 2 minutos y la consulta fue excelente.',
+    text: 'Steliant Salud cambió completamente mi experiencia médica. Pude agendar con mi cardióloga en menos de 2 minutos y la consulta fue excelente.',
     rating: 5,
   },
   {
@@ -131,7 +131,7 @@ export const testimonials = [
   {
     name: 'Dr. José Mendoza',
     role: 'Médico verificado',
-    text: 'Como médico, MedAgenda me ha ayudado a gestionar mis citas de manera profesional. La plataforma es excelente tanto para doctores como pacientes.',
+    text: 'Como médico, Steliant Salud me ha ayudado a gestionar mis citas de manera profesional. La plataforma es excelente tanto para doctores como pacientes.',
     rating: 5,
   },
 ];
@@ -211,3 +211,4 @@ export const appointments = [
     type: 'Presencial',
   },
 ];
+

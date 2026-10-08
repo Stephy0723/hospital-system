@@ -81,7 +81,7 @@ export default function Register() {
     setTimeout(() => {
       register(formData);
       setLoading(false);
-      toast.success('¡Cuenta creada exitosamente! Bienvenido a MedAgenda');
+      toast.success('¡Cuenta creada exitosamente! Bienvenido a Steliant Salud');
       setTimeout(() => navigate('/dashboard'), 1500);
     }, 2000);
   };
@@ -103,7 +103,7 @@ export default function Register() {
             <Stethoscope size={28} className="text-white" />
           </div>
           <h1 className="text-3xl font-bold mb-2 text-heading">Crea tu cuenta</h1>
-          <p className="text-muted">Empieza a cuidar tu salud con MedAgenda</p>
+          <p className="text-muted">Empieza a cuidar tu salud con Steliant Salud</p>
         </div>
 
         {/* Progress */}
@@ -330,3 +330,4 @@ export default function Register() {
     </div>
   );
 }
+

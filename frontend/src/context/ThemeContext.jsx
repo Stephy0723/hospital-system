@@ -5,7 +5,7 @@ const ThemeContext = createContext();
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('medagenda-theme') || 'dark';
+      return localStorage.getItem('steliant-salud-theme') || 'dark';
     }
     return 'dark';
   });
@@ -13,7 +13,7 @@ export function ThemeProvider({ children }) {
   useEffect(() => {
     const root = document.documentElement;
     root.setAttribute('data-theme', theme);
-    localStorage.setItem('medagenda-theme', theme);
+    localStorage.setItem('steliant-salud-theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -32,3 +32,4 @@ export function useTheme() {
   if (!context) throw new Error('useTheme must be used within ThemeProvider');
   return context;
 }
+

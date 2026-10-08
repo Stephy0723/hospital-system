@@ -15,7 +15,7 @@ const MOCK_USERS = {
   doctor: {
     id: 1,
     fullName: 'Dra. María González',
-    email: 'maria.gonzalez@medagenda.do',
+    email: 'maria.gonzalez@steliant-salud.do',
     phone: '+1 809 555 5678',
     role: 'doctor',
     specialty: 'Cardiología',
@@ -35,7 +35,7 @@ const MOCK_USERS = {
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('medagenda-user');
+      const saved = localStorage.getItem('steliant-salud-user');
       return saved ? JSON.parse(saved) : null;
     }
     return null;
@@ -43,9 +43,9 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     if (user) {
-      localStorage.setItem('medagenda-user', JSON.stringify(user));
+      localStorage.setItem('steliant-salud-user', JSON.stringify(user));
     } else {
-      localStorage.removeItem('medagenda-user');
+      localStorage.removeItem('steliant-salud-user');
     }
   }, [user]);
 
@@ -98,3 +98,4 @@ export function useAuth() {
   if (!ctx) throw new Error('useAuth must be used within AuthProvider');
   return ctx;
 }
+

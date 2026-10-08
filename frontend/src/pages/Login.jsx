@@ -60,7 +60,7 @@ export default function Login() {
             <Stethoscope size={28} className="text-white" />
           </div>
           <h1 className="text-3xl font-bold mb-2 text-heading">Bienvenido de vuelta</h1>
-          <p className="text-muted">Ingresa a tu cuenta de MedAgenda</p>
+          <p className="text-muted">Ingresa a tu cuenta de Steliant Salud</p>
         </div>
 
         {/* Form */}
@@ -189,3 +189,4 @@ export default function Login() {
     </div>
   );
 }
+

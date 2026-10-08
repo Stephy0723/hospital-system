@@ -22,64 +22,19 @@ import Cookies from './pages/Cookies';
 import ForgotPassword from './pages/ForgotPassword';
 import ScrollToTop from './components/ScrollToTop';
 
-function App() {
-  return (
-    <ThemeProvider>
-      <ToastProvider>
-        <AuthProvider>
-          <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
-              {/* Public routes */}
-              <Route element={<MainLayout />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route path="/doctors" element={<Doctors />} />
-                <Route path="/doctors/:id" element={<DoctorProfile />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/appointments" element={<Appointments />} />
-                <Route path="/appointments/new" element={<NewAppointment />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/terms" element={<Terms />} />
-                <Route path="/cookies" element={<Cookies />} />
-              </Route>
-        <HashRouter>
-          <ScrollToTop />
-          <Routes>
-            {/* Public routes */}
-            <Route element={<MainLayout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/forgot-password" element={<ForgotPassword />} />
-              <Route path="/doctors" element={<Doctors />} />
-              <Route path="/doctors/:id" element={<DoctorProfile />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/appointments" element={<Appointments />} />
-              <Route path="/appointments/new" element={<NewAppointment />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="/cookies" element={<Cookies />} />
-            </Route>
-
-              {/* Dashboard routes */}
-              <Route element={<DashboardLayout />}>
-                <Route path="/dashboard" element={<Dashboard />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </AuthProvider>
-      </ToastProvider>
-    </ThemeProvider>
-  );
-}
-
+function App() {return (<ThemeProvider><ToastProvider><AuthProvider><HashRouter><ScrollToTop/><Routes><Route element={<MainLayout/>}><Route path="/" element={<Home />} />
+<Route path="/login" element={<Login />} />
+<Route path="/register" element={<Register />} />
+<Route path="/forgot-password" element={<ForgotPassword />} />
+<Route path="/doctors" element={<Doctors />} />
+<Route path="/doctors/:id" element={<DoctorProfile />} />
+<Route path="/services" element={<Services />} />
+<Route path="/about" element={<About />} />
+<Route path="/appointments" element={<Appointments />} />
+<Route path="/appointments/new" element={<NewAppointment />} />
+<Route path="/contact" element={<Contact />} />
+<Route path="/blog" element={<Blog />} />
+<Route path="/privacy" element={<Privacy />} />
+<Route path="/terms" element={<Terms />} />
+<Route path="/cookies" element={<Cookies />} /></Route><Route element={<DashboardLayout/>}><Route path="/dashboard" element={<Dashboard/>}/></Route></Routes></HashRouter></AuthProvider></ToastProvider></ThemeProvider>)}
 export default App;

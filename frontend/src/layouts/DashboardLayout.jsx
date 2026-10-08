@@ -155,7 +155,7 @@ export default function DashboardLayout() {
                 <h1 className="text-lg font-bold text-heading">
                   {user?.role === 'doctor' ? 'Panel Médico' : 'Mi Panel'}
                 </h1>
-                <p className="text-xs text-muted hidden sm:block">Gestiona tu cuenta de MedAgenda</p>
+                <p className="text-xs text-muted hidden sm:block">Gestiona tu cuenta de Steliant Salud</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -193,3 +193,4 @@ export default function DashboardLayout() {
     </div>
   );
 }
+

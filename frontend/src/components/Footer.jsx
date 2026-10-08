@@ -20,9 +20,9 @@ const footerLinks = {
 };
 
 const socialIcons = [
-  { icon: Twitter, href: 'https://twitter.com/medagenda', label: 'Twitter' },
-  { icon: Linkedin, href: 'https://linkedin.com/company/medagenda', label: 'LinkedIn' },
-  { icon: Instagram, href: 'https://instagram.com/medagenda', label: 'Instagram' },
+  { icon: Twitter, href: 'https://twitter.com/steliant-salud', label: 'Twitter' },
+  { icon: Linkedin, href: 'https://linkedin.com/company/steliant-salud', label: 'LinkedIn' },
+  { icon: Instagram, href: 'https://instagram.com/steliant-salud', label: 'Instagram' },
   { icon: Github, href: 'https://github.com/steliant', label: 'GitHub' },
 ];
 
@@ -90,7 +90,7 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-themed">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-faint text-sm">
-              &copy; {new Date().getFullYear()} MedAgenda. Todos los derechos reservados.
+              &copy; {new Date().getFullYear()} Steliant Salud. Todos los derechos reservados.
             </p>
           </div>
         </div>
@@ -98,3 +98,4 @@ export default function Footer() {
     </footer>
   );
 }
+
